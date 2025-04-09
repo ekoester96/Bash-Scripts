@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Author: Ethan Koester-Schmidt
+# Date Created: 4/9/2025
+# Date Modified: 4/9/2025
+
+# Decription
+# Creates an archive of my home directory in the path ~/Bash_Course/my_backup.tar.gz file
+
+# Usage
+# ./backup_script
+
+sudo tar -czvf documents_backup_"$(date +%d-%m-%y_%H-%M-%S)".tar.gz --absolute-names /home/$USER/Documents
+exit 0
+
