@@ -3,20 +3,36 @@
 #Author: Ethan Koester-Schmidt
 #Date Created: 4/24/2025
 #Date Modified: 4/24/2025
-#Description: Used to automate the installation of applications for an Arch desktop environment assumes you are using the KDE plasma environment with sddm display manager
-sudo systemctl enable sddm.service
-sudo systemctl start sddm.service
-sudo pacman -S neofetch htop
-yay -S -y brave
-sudo pacman -Y vlc
-sudo pacman -S vscode
-sudo pacman -S -y libreoffice
-sudo pacman -S -y ttf-dejavu ttf-liberation noto-fonts
-yay -S -y timeshift
-sudo pacman -S -y bluez bluez-utils
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
-sudo pacman -S -y zip unzip p7zip
-sudo pacman -S yakuake
-sudo pacman -S -y ufw
-sudo ufw enable
+#Description: Used to automate the installation of applications in archlinux
+#Usage: 
+#1: Run command "archinstall" as root on system installation and configure system with guide below
+#2: Config: mirrors - select country, disk configuration - default, set root password and users, network configuration - Networkmanager, select install
+#3: select chroot to login as root
+#4: Download git "pacman -S git"
+#5: Run command "git clone https://github.com/ekoester96/Bash-Scripts"
+#6: Run command "cd Bash-Scripts"
+#7: Run command "chmod 744 archinstall.sh"
+#8: Run command "./archinstall.sh"
+pacman -Syu
+pacman -Sy plasma-desktop
+systemctl enable sddm.service
+systemctl start sddm.service
+pacman -Sy neofetch htop
+yay -Sy brave
+pacman -Sy vlc
+pacman -Sy vscode
+pacman -Sy libreoffice
+pacman -Sy ttf-dejavu ttf-liberation noto-fonts
+yay -Sy timeshift
+pacman -Sy bluez bluez-utils
+systemctl enable bluetooth
+systemctl start bluetooth
+pacman -Sy zip unzip p7zip
+pacman -Sy yakuake
+pacman -Sy ufw
+ufw allow ssh/tcp
+ufw enable
+ufw allow 443/tcp
+ufw logging medium
+
+
