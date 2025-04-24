@@ -14,32 +14,70 @@
 #7: Run command "chmod 744 archinstall.sh"
 #8: Run command "./archinstall.sh"
 # When installing use default (1) and y 
+
+echo "updating system"
 pacman -Syu
+
+echo "installing KDE Plasma Desktop Environment"
 pacman -S plasma-desktop
+
+#Display manager will be enabled at the end of the script
+echo "Installing Display Manager"
 pacman -S sddm
+
+#System information utilities
+echo "Installing Neofetch & Htop"
 pacman -S neofetch htop
+
+#Web browsing
+echo "Installing Brave Browser"
 yay -S brave
-pacman -S vlc
+
+#IDE
+echo "Installing VS Code"
 pacman -S vscode
-pacman -S libreoffice
-pacman -S ttf-dejavu ttf-liberation noto-fonts
+
+#configure timeshift backups in GUI once logged in
+echo "Installing Timeshift for snapshots"
 yay -S timeshift
+
+#Common system utilites for desktops
+echo "Installing Utilities"
+pacman -S vlc
 pacman -S bluez bluez-utils
 systemctl enable bluetooth
 systemctl start bluetooth
 pacman -S zip unzip p7zip
 pacman -S yakuake
 pacman -S nano
+pacman -S libreoffice
+pacman -S ttf-dejavu ttf-liberation noto-fonts
+
+# downloads iptables needed for ufw
 pacman -S iptables-nft
+
+#Always use a firewall
+echo "Installing Firewall"
 pacman -S ufw
+echo "Enabling Firewall"
 ufw enable
-ufw reload
+echo "Configuring Firewall"
 ufw allow ssh/tcp
 ufw allow 443/tcp
 ufw logging medium
+ufw reload
 ufw status
-systemctl enable sddm.service
+
+echo "Enabling Display Manager"
+echo "restart system and login as user"
+echo "Choose X11 display server protocol on user login screen"
+
+sleep 5; systemctl enable sddm.service
 systemctl start sddm.service
-#switch to plasma x11 when logging in
+
+echo "Exitting root user"
+sleep 5; exit
+
+sleep 3; sudo reboot
 
 
