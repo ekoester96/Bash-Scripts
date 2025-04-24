@@ -6,14 +6,14 @@
 #Description: Used to automate the installation of applications in archlinux
 #Usage: 
 #1: Run command "archinstall" as root on system installation and configure system with guide below
-#2: Config: mirrors - select country, disk configuration - default, set root password and users, network configuration - Networkmanager, select install
-#3: select chroot to login as root
+#2: Config: mirrors - select country, disk configuration - default, set root password and users, network configuration - Networkmanager
+#3: select yes to login as chroot
 #4: Download git "pacman -S git"
 #5: Run command "git clone https://github.com/ekoester96/Bash-Scripts"
 #6: Run command "cd Bash-Scripts"
 #7: Run command "chmod 744 archinstall.sh"
 #8: Run command "./archinstall.sh"
-# When installing use default (1) and y 
+#9: When installing use default (1) and y to confirm 
 
 echo "updating system"
 sleep 2; pacman -Syu
