@@ -14,33 +14,44 @@
 #7: Run command "chmod 744 archinstall.sh"
 #8: Run command "./archinstall.sh"
 # When installing use default (1) and y 
---noconfirm
-echo "updating system"
-pacman -Syu
 
+echo "updating system"
+sleep 2; pacman -Syu
+
+echo
+echo
 echo "installing KDE Plasma Desktop Environment"
-pacman -S plasma-desktop
+sleep 3; pacman -S plasma-desktop
 
 #Display manager will be enabled at the end of the script
 echo "Installing Display Manager"
-pacman -S sddm
+sleep 2; pacman -S sddm
 
+echo
+echo
 #System information utilities
 echo "Installing Neofetch & Htop"
-pacman -S neofetch htop
+sleep 2; pacman -S neofetch htop
 
+echo
+echo
 #Web browsing
 echo "Installing Brave Browser"
-yay -S brave
+sleep 2; yay -S brave
 
 #IDE
 echo "Installing VS Code"
-pacman -S vscode
+sleep 2; pacman -S vscode
 
+echo
+echo
 #configure timeshift backups in GUI once logged in
 echo "Installing Timeshift for snapshots"
-yay -S timeshift
+sleep 2; yay -S timeshift
 
+#formatting
+echo
+echo
 #Common system utilites for desktops
 echo "Installing Utilities"
 pacman -S vlc
@@ -56,6 +67,9 @@ pacman -S ttf-dejavu ttf-liberation noto-fonts
 # downloads iptables needed for ufw
 pacman -S iptables-nft
 
+#formatting
+echo
+echo
 #Always use a firewall
 echo "Installing Firewall"
 pacman -S ufw
@@ -68,16 +82,20 @@ ufw logging medium
 ufw reload
 ufw status
 
-echo "Enabling Display Manager"
-echo "restart system and login as user"
+systemctl enable sddm.service
+#formatting
+echo 
+echo
+echo
+echo
+echo
+echo "Exit chroot and reboot system"
+echo "run command 'systemctl start sddm.service'"
 echo "Choose X11 display server protocol on user login screen"
 
-sleep 5; systemctl enable sddm.service
-systemctl start sddm.service
+sleep 5; echo
 
-echo "Exitting root user"
-sleep 5; exit
 
-sleep 3; sudo reboot
+
 
 
