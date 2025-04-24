@@ -25,7 +25,7 @@ sleep 3; pacman -S plasma-desktop
 
 #Display manager will be enabled at the end of the script
 echo "Installing Display Manager"
-sleep 2; pacman -S sddm
+sleep 2; pacman -S sddm; systemctl enable sddm.service
 
 echo
 echo
@@ -59,10 +59,15 @@ pacman -S bluez bluez-utils
 systemctl enable bluetooth
 systemctl start bluetooth
 pacman -S zip unzip p7zip
-pacman -S yakuake
+pacman -S konsole
 pacman -S nano
 pacman -S libreoffice
 pacman -S ttf-dejavu ttf-liberation noto-fonts
+pacman -S print-manager
+pacman -S cups
+pacman -S system-config-printer
+pacman -S dolphin
+pacman -S ksystemlog
 
 # downloads iptables needed for ufw
 pacman -S iptables-nft
@@ -81,8 +86,9 @@ ufw allow 443/tcp
 ufw logging medium
 ufw reload
 ufw status
+echo "Check Firewall Status"
+sleep 5; echo 
 
-systemctl enable sddm.service
 #formatting
 echo 
 echo
