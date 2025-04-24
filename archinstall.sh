@@ -14,7 +14,7 @@
 #7: Run command "chmod 744 archinstall.sh"
 #8: Run command "./archinstall.sh"
 # When installing use default (1) and y 
-
+--noconfirm
 echo "updating system"
 pacman -Syu
 
