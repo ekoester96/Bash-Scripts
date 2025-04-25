@@ -36,8 +36,8 @@ sleep 2; pacman -S neofetch htop
 echo
 echo
 #Web browsing
-echo "Installing Brave Browser"
-sleep 2; yay -S brave
+echo "Installing Firefox Browser"
+sleep 2; pacman -S firefox
 
 #IDE
 echo "Installing VS Code"
@@ -67,7 +67,9 @@ pacman -S print-manager
 pacman -S cups
 pacman -S system-config-printer
 pacman -S dolphin
+pacman -S dolphin-plugins
 pacman -S ksystemlog
+pacman -S kdenetwork-filesharing
 
 # downloads iptables needed for ufw
 pacman -S iptables-nft
