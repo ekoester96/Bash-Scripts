@@ -16,6 +16,9 @@
 #9: When installing use default (1) and y to confirm 
 
 echo "updating system"
+sleep 1; echo "1"
+sleep 1; echo "2"
+sleep 1; echo "3"
 sleep 2; pacman -Syu
 
 echo
