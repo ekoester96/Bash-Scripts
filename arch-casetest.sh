@@ -204,5 +204,22 @@ select choice in "Yes" "No"; do
     esac
 done
 
+#formatting
+echo 
+echo
+echo
+echo
+echo
+echo "1). Exit chroot and reboot system"
+echo
+echo "2)."
+echo "For KDE 'systemctl start sddm.service'"
+echo "For Gnome 'systemctl start gdm.service'"
+echo "For Xfce 'systemctl start lightdm.service'"
+echo 
+echo "3). Choose X11 display server protocol on user login screen"
+
+read -p "When ready press enter" value
+
 
 
