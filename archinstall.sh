@@ -13,7 +13,8 @@
 #6: Run command "cd Bash-Scripts"
 #7: Run command "chmod 744 archinstall.sh"
 #8: Run command "./archinstall.sh"
-#9: When installing use default (1) and y to confirm 
+#9: Alternatively you can use "wget https://raw.githubusercontent.com/ekoester96/Bash-Scripts/refs/heads/main/archinstall.sh" to download just the script
+#10: When installing use default (1) and y to confirm 
 
 echo "updating system"
 sleep 1; echo "1"
