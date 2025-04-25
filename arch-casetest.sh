@@ -205,11 +205,7 @@ select choice in "Yes" "No"; do
 done
 
 #formatting
-echo 
-echo
-echo
-echo
-echo
+clear
 echo "1). Exit chroot and reboot system"
 echo
 echo "2)."
