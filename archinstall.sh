@@ -20,7 +20,7 @@ sleep 2; pacman -Syu
 
 echo
 echo
-echo "installing KDE Plasma Desktop Environment"
+echo "Installing KDE Plasma Desktop Environment"
 sleep 3; pacman -S plasma-desktop
 
 #Display manager will be enabled at the end of the script
@@ -54,12 +54,10 @@ echo
 echo
 #Common system utilites for desktops
 echo "Installing Utilities"
-pacman -S vlc
-pacman -S bluez bluez-utils
-systemctl enable bluetooth
-systemctl start bluetooth
+
 pacman -S zip unzip p7zip
-pacman -S konsole
+pacman -S alacritty
+pacman -S neovim
 pacman -S nano
 pacman -S libreoffice
 pacman -S ttf-dejavu ttf-liberation noto-fonts
