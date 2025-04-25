@@ -2,7 +2,7 @@
 
 #Author: Ethan Koester-Schmidt
 #Date Created: 4/24/2025
-#Date Modified: 4/24/2025
+#Date Modified: 4/25/2025
 #Description: Used to automate the installation of applications in archlinux
 #Usage: 
 #1: Run command "archinstall" as root on system installation and configure system with guide below
