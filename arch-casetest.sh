@@ -26,9 +26,11 @@ select choice in "Yes" "No"; do
     esac
 done
 
+pacman -S zip unzip p7zip alacritty yay neovim nano libreoffice ttf-dejavu ttf-liberation noto-fonts vscode firefox glib2 timeshift neofetch htop xorg-wayland
+    
 PS3="What Desktop Environment would you like to use? "
 
-select desktop in "KDE" "Gnome" "Xfce"; do
+select desktop in "KDE" "Gnome"; do
     case $desktop in
         "KDE")
             pacman -S plasma-desktop
@@ -43,111 +45,6 @@ select desktop in "KDE" "Gnome" "Xfce"; do
             pacman -S nautilus
             pacman -S gdm
             systemctl enable gdm.service
-            break
-            ;;
-        "Xfce")
-            pacman -S xfce4
-            pacman -S lightdm
-            systemctl enable lightdm.service
-            break
-            ;;
-            
-        *)
-            echo "Invalid option. Please select 1 or 2."
-            ;;
-    esac
-done
-
-PS3="Would you like to install Timeshift? "
-
-select choice in "Yes" "No"; do
-    case $choice in
-        "Yes")
-            pacman -S yay
-            pacman -S glib2
-            yay -S timeshift
-            break
-            ;;
-        "No")
-            echo "Nevermind."
-            break
-            ;;
-        *)
-            echo "Invalid option. Please select 1 or 2."
-            ;;
-    esac
-done
-
-PS3="Would you like to install administrative utilities "
-
-select choice in "Yes" "No"; do
-    case $choice in
-        "Yes")
-            echo "Installing Neofetch & Htop"
-            sleep 2; pacman -S neofetch htop
-            break
-            ;;
-        "No")
-            echo "Nevermind."
-            break
-            ;;
-        *)
-            echo "Invalid option. Please select 1 or 2."
-            ;;
-    esac
-done
-
-PS3="Would you like to install basic utilities? "
-
-select choice in "Yes" "No"; do
-    case $choice in
-        "Yes")
-            pacman -S zip unzip p7zip
-            pacman -S alacritty
-            pacman -S neovim
-            pacman -S nano
-            pacman -S libreoffice
-            pacman -S ttf-dejavu ttf-liberation noto-fonts
-            break
-            ;;
-        "No")
-            echo "Nevermind."
-            break
-            ;;
-        *)
-            echo "Invalid option. Please select 1 or 2."
-            ;;
-    esac
-done
-
-PS3="Would you like to install Firefox? "
-
-select choice in "Yes" "No"; do
-    case $choice in
-        "Yes")
-            pacman -S firefox
-            break
-            ;;
-        "No")
-            echo "Nevermind."
-            break
-            ;;
-        *)
-            echo "Invalid option. Please select 1 or 2."
-            ;;
-    esac
-done
-
-PS3="Would you like to install VScode? "
-
-select choice in "Yes" "No"; do
-    case $choice in
-        "Yes")
-            pacman -S vscode
-            break
-            ;;
-        "No")
-            echo "Nevermind."
             break
             ;;
         *)
@@ -182,16 +79,9 @@ select choice in "Yes" "No"; do
     case $choice in
         "Yes")
             pacman -S iptables-nft
-            pacman -S ufw
-            ufw enable
-            echo "Configuring Firewall"
-            ufw allow ssh/tcp
-            ufw allow 443/tcp
-            ufw logging medium
-            ufw reload
-            ufw status
-            echo "Check Firewall Status"
-            sleep 5; echo 
+            pacman -S firewalld
+            systemctl start firewalld
+            systemctl enable firewalld
             break
             ;;
         "No")
@@ -211,11 +101,7 @@ echo
 echo "2)."
 echo "For KDE 'systemctl start sddm.service'"
 echo "For Gnome 'systemctl start gdm.service'"
-echo "For Xfce 'systemctl start lightdm.service'"
 echo 
 echo "3). Choose X11 display server protocol on user login screen"
 
 read -p "When ready press enter" value
-
-
-
