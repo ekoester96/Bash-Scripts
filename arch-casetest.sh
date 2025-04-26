@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ethan
 # Date: 4/25/25
-# Date Modified: 4/25/25
+# Date Modified: 4/26/25
 # Decription: testing script for arch linux
 
 PS3="Do you want to update the operating system? "
@@ -78,7 +78,7 @@ PS3="Would you like to use a Firewall? "
 select choice in "Yes" "No"; do
     case $choice in
         "Yes")
-            pacman -S iptables-nft
+            pacman -S nftables
             pacman -S firewalld
             systemctl start firewalld
             systemctl enable firewalld
@@ -102,6 +102,6 @@ echo "2)."
 echo "For KDE 'systemctl start sddm.service'"
 echo "For Gnome 'systemctl start gdm.service'"
 echo 
-echo "3). Choose X11 display server protocol on user login screen"
+echo "3). If blank screen after login choose X11 display server protocol on user login screen"
 
 read -p "When ready press enter" value
