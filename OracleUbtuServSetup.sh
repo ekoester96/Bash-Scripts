@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Variables
+# List of variables used in script
 DISK="/dev/sdb"
 PARTITION="${DISK}1"
 MOUNT_POINT="/blockvolume1"
@@ -47,7 +47,7 @@ UUID=$(blkid -s UUID -o value "$PARTITION")
 echo "Backing up /etc/fstab to $FSTAB_BACKUP..."
 cp /etc/fstab "$FSTAB_BACKUP"
 
-# Add to /etc/fstab if not already present
+# Add the UUID to the /etc/fstab if not already present
 if ! grep -q "$UUID" /etc/fstab; then
     echo "UUID=$UUID $MOUNT_POINT ext4 defaults 0 2" >> /etc/fstab
     echo "Added $PARTITION to /etc/fstab"
@@ -56,7 +56,7 @@ fi
 # Done with disk setup
 echo "$PARTITION mounted at $MOUNT_POINT and configured in /etc/fstab"
 
-# Install WireGuard via PiVPN in unattended mode
+# Install WireGuard via PiVPN in unattended mode EX: --user will add ubuntu to config of VPN install
 echo "Installing WireGuard via PiVPN unattended installer..."
 curl -L https://install.pivpn.io | bash -s -- --unattended \
     --user ubuntu \
