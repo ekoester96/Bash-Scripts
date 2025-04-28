@@ -1,0 +1,10 @@
+#!/bin/bash
+# Usage: ./Read-While-Loop filename.txt
+# This is essentially a cat command but is better because you can change the echo line to run different command for each line in a file
+# Description: A read while loop will read each line of a given file and process a command for each line
+# line can be any variable
+while read line; do
+# This is the command that runs for each line of a given text file when running the script
+    echo "$line"
+# redirection to the first argument, double quotes prevent word splitting
+done < "$1"
