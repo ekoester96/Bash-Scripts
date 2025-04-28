@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # Variables
 DISK="/dev/sdb"
