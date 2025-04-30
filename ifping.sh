@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Author: Ethan Koester-Schmidt
+#Date Created: 4/24/2025
+#Date Modified: 4/30/2025
+#Description: 
+
+# path to the ping command
+command=/usr/bin/ping
+# if (-f checks if file exists for the command)
+if [ -f $command ]
+then
+# ping nmap 3 times
+    echo "file found execute command"
+    $command -c 3 scanme.nmap.org
+else
+    echo "command not and must be installed"
+    sudo apt install $command
+fi
+
+
+
+
+
+
