@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # this is the file with stored webhost names
-input_file="hosts.txt
+input_file="hosts.txt"
 
 # IFS is internal field separator ensuring read will read the entire line without delimiters
 while IFS= read -r host
