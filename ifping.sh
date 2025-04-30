@@ -3,7 +3,7 @@
 #Author: Ethan Koester-Schmidt
 #Date Created: 4/24/2025
 #Date Modified: 4/30/2025
-#Description: 
+#Description: example if statement with commands
 
 # path to the ping command
 command=/usr/bin/ping
@@ -14,7 +14,7 @@ then
     echo "file found execute command"
     $command -c 3 scanme.nmap.org
 else
-    echo "command not and must be installed"
+    echo "command not found and must be installed"
     sudo apt install $command
 fi
 
