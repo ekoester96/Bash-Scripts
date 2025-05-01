@@ -15,7 +15,6 @@ then
     $command -c 3 scanme.nmap.org
 else
     echo "command not found and must be installed"
-    sudo apt install $command
 fi
 
 
