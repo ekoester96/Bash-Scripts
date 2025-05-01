@@ -9,7 +9,7 @@
 
 # Usage
 # backup_script (if this script is saved in a folder located in the systems $PATH variable) otherwise use: ./backup_script
-
+# use cd "${0%/*}" if you want the script to run from the location the script is stored in
 tar -czvf /home/$USER/Backupstg/documents_backup_"$(date +%d-%m-%y_%H-%M-%S)".tar.gz --absolute-names /home/$USER/Documents
 exit 0
 
