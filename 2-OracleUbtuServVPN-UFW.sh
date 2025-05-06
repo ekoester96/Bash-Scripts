@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Install WireGuard via PiVPN in unattended mode EX: --user will add ubuntu to config of VPN install
+echo "Installing WireGuard via PiVPN unattended installer..."
+curl -L https://install.pivpn.io | bash -s -- --unattended \
+    --user ubuntu \
+    --protocol wireguard \
+    --port 51820 \
+    --dns quad9 \
+    --ip public \
+    --auto-reboot \
+    --unattended-upgrades
+
 # Check if pivpn is installed
 if ! command -v pivpn &> /dev/null; then
     echo "PiVPN is not installed. Exiting."
